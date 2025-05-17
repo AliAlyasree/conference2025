@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المؤتمر العلمي الدولي الأول لعلوم الرياضة 2025</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #f0f4f8;
+      direction: rtl;
+    }
+    header {
+      background: linear-gradient(to left, #0077b6, #00b4d8);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+    .banner {
+      background: url('https://images.unsplash.com/photo-1588776814546-05e46d3d0e94?fit=crop&w=1400&q=80') no-repeat center center;
+      background-size: cover;
+      height: 300px;
+      position: relative;
+    }
+    .banner::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+    .content {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      border-radius: 10px;
+      margin-top: -80px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      font-size: 1.5rem;
+      margin-top: 20px;
+    }
+    .countdown div {
+      background: #0077b6;
+      color: white;
+      padding: 1rem;
+      border-radius: 10px;
+      min-width: 80px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>المؤتمر العلمي الدولي الأول لعلوم الرياضة 2025</h1>
+    <p>تحت شعار: دور الذكاء الاصطناعي لتعزيز التنمية المستدامة في المجال الرياضي</p>
+    <p>جامعة واسط - جمهورية مصر العربية - 11 سبتمبر 2025</p>
+  </header>
+
+  <div class="banner"></div>
+
+  <div class="content">
+    <h2 style="text-align: center;">العد التنازلي لانطلاق المؤتمر</h2>
+    <div class="countdown" id="countdown">
+      <div><span id="days">0</span><br>يوم</div>
+      <div><span id="hours">0</span><br>ساعة</div>
+      <div><span id="minutes">0</span><br>دقيقة</div>
+      <div><span id="seconds">0</span><br>ثانية</div>
+    </div>
+  </div>
+
+  <script>
+    const countdownDate = new Date("2025-09-11T00:00:00").getTime();
+    const countdown = document.getElementById("countdown");
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = countdownDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = days;
+      document.getElementById("hours").innerText = hours;
+      document.getElementById("minutes").innerText = minutes;
+      document.getElementById("seconds").innerText = seconds;
+
+      if (distance < 0) {
+        countdown.innerHTML = "<p>انطلق المؤتمر!</p>";
+      }
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
